@@ -3,9 +3,12 @@ import React from 'react';
 import img from '../../../img/jpg/pomodoro.jpeg'
 import styled from 'styled-components'
 
+import {device} from '../device/device'
+
 
 const Pomodoroimg = styled.img`
-       max-width: 100%;
+       width: 100%;
+       height:270px;
        display:block;
        margin-left: auto;
        margin-right: auto;

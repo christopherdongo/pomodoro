@@ -3,6 +3,10 @@ import styled from "styled-components";
 import Img from "../styled/imagen/img";
 import Button from "../styled/Button/Button";
 import NotificationDiv from '../styled/Notification/Notification'
+//media query
+
+import {device} from '../styled/device/device'
+
 
 const Contendorbutton = styled.div`
   display: flex;
@@ -14,11 +18,13 @@ const Contendorbutton = styled.div`
 `;
 const Timer = styled.div`
   text-align: center;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 50px;
+  font-family: 'Sansita Swashed', cursive;
+  font-size: 5em;
   font-weight: 800;
   padding-top: 10px;
   padding-bottom: 10px;
+
+
 `;
 
 const Containerimg = styled.figure`
@@ -29,8 +35,6 @@ const Containerimg = styled.figure`
   margin-top: 20px;
   border-block-color: blue;
 `;
-
-
 
 const Pomodoro = () => {
   //estados iniciales
@@ -49,6 +53,7 @@ const Pomodoro = () => {
     message: "",
     type: "",
   });
+
   const [running, setRunning] = useState(false)
   const [pause, setPause] = useState(false)
   //actualizar los cambios
@@ -171,7 +176,6 @@ const Pomodoro = () => {
            </Button>
          </div> 
          
- 
         </Contendorbutton>
 
         <Containerimg>

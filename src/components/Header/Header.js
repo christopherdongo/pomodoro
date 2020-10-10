@@ -6,7 +6,7 @@ const HeaderComponent = styled.header`
     background-color: #205C61;
     height:3rem;
     font-size: 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Sansita Swashed', cursive;
     display: flex;
     margin-right:-15px;
     margin-left: -15px;
@@ -15,6 +15,7 @@ const HeaderComponent = styled.header`
     align-content:center;
     border-top-right-radius:8px;
     border-top-left-radius:8px;
+
 `
 const Header =()=> {
 
