@@ -11,9 +11,6 @@ body {
   }
 `;
 
-const ContainerPrincipal = styled.div`
-  margin-top: 2em;
-`;
 const Contornodiv = styled.div`
   -webkit-box-shadow: 10px 10px 113px 8px rgba(4, 7, 79, 1);
   -moz-box-shadow: 10px 10px 113px 8px rgba(4, 7, 79, 1);
@@ -25,14 +22,14 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <ContainerPrincipal>
+      <div>
         <div className="row d-flex justify-content-center">
           <Contornodiv className="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10 mt-5">
             <Header />
             <Pomodoro />
           </Contornodiv>
         </div>
-      </ContainerPrincipal>
+      </div>
     </>
   );
 }
