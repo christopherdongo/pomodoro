@@ -111,7 +111,7 @@ const Pomodoro = () => {
   const setTimeForShortBreak = () => {
     setAlerta({
       type: "shortBreak",
-      message: "Taking a short Break",
+      message: "Taking a short Break!!",
     });
     setRunning(true)
     return setTime(times.shortBreak);
@@ -121,7 +121,7 @@ const Pomodoro = () => {
   const setTimeForLongBreak = () => {
     setAlerta({
       type: "longBreak",
-      message: "Taking a long Break!",
+      message: "Taking a long Break!!",
     });
     setRunning(true)
     return setTime(times.longBreak);
@@ -155,7 +155,7 @@ const Pomodoro = () => {
       <div>
         {message ? (
           <NotificationDiv type={type} running={running}>
-            <h1>{running? message : 'Pause'}</h1>
+            <h1>{running? message : 'Pause!!!!'}</h1>
           </NotificationDiv>
         ) : (
           ""
