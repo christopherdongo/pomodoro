@@ -24,12 +24,23 @@ const Timer = styled.div`
   padding-top: 10px;
   padding-bottom: 10px;
 
+  @media ${device.laptop}{
+    font-size:4em;
+  }
+
+  @media ${device.tablet}{
+      font-size:3.5em;
+  }
+  @media ${device.mobilex}{
+    font-size:3em;
+  }
+
 
 `;
 
 const Containerimg = styled.figure`
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height:100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;

@@ -7,8 +7,7 @@ import {device} from '../device/device'
 
 
 const Pomodoroimg = styled.img`
-       width: 100%;
-       height:270px;
+       width: 50%;
        display:block;
        margin-left: auto;
        margin-right: auto;
