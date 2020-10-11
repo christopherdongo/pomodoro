@@ -10,6 +10,7 @@ const Button = styled.button`
  color: mediumseagreen;
  border: 2px solid; 
  font-family: 'Sansita Swashed', cursive;
+ font-weight:500;
 
 @media ${device.tablet}{
     font-size: 0.8em;
@@ -20,6 +21,10 @@ const Button = styled.button`
 }
 @media ${device.mobilex}{
     font-size:0.6em;
+}
+
+@media ${device.mobileM}{
+    font-size:0.5em;
 }
 
 `

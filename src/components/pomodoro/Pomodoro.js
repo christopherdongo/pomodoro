@@ -15,6 +15,13 @@ const Contendorbutton = styled.div`
   div {
     padding: 10px;
   }
+
+  @media ${device.desktop}{
+    display:flex;
+    justify-content:space-between;
+  }
+
+
 `;
 const Timer = styled.div`
   text-align: center;
@@ -34,8 +41,6 @@ const Timer = styled.div`
   @media ${device.mobilex}{
     font-size:3em;
   }
-
-
 `;
 
 const Containerimg = styled.figure`

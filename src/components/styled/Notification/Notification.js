@@ -53,7 +53,6 @@ const NotificationDiv = styled.div`
   50% { opacity: 0.0; }
    100% { opacity: 1.0; }
 }
-
 @keyframes parpadeo {  
   0% { opacity: 1.0; }
    50% { opacity: 0.0; }
