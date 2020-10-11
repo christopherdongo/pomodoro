@@ -15,7 +15,6 @@ const HeaderComponent = styled.header`
     align-content:center;
     border-top-right-radius:8px;
     border-top-left-radius:8px;
-
 `
 const Header =()=> {
 

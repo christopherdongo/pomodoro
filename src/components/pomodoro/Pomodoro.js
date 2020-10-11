@@ -20,8 +20,6 @@ const Contendorbutton = styled.div`
     display:flex;
     justify-content:space-between;
   }
-
-
 `;
 const Timer = styled.div`
   text-align: center;

@@ -8,6 +8,7 @@ body {
     background-color: whitesmoke;
     text-align:center;
     overflow:hidden;
+    margin-top:2em;
   }
 `;
 
