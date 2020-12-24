@@ -2,16 +2,18 @@
 import React from 'react';
 import img from '../../../img/jpg/pomodoro.jpeg'
 import styled from 'styled-components'
-
 import {device} from '../device/device'
 
-
 const Pomodoroimg = styled.img`
-       width: 50%;
        display:block;
-       margin-left: auto;
-       margin-right: auto;
-       border-radius:10px;     
+       width:90%;
+       height:270px;
+       border-radius:10px;  
+       object-fit:fill;
+       object-position:center;
+       @media ${device.tablet} {
+         width:550px;
+       }  
 `
 const Img =()=>{
     return(

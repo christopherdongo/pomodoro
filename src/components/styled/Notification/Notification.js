@@ -1,12 +1,13 @@
 import styled,{css} from "styled-components";
 
 const NotificationDiv = styled.div`
-  height: 3rem;
-  margin-right: -15px;
-  margin-left: -15px;
-
-  & h1 {
-    padding-top: 10px;
+  width:100%;
+  height: 65px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
+  &h1 {
     font-size: 20px;
     font-weight: bold;
   }
@@ -26,9 +27,8 @@ const NotificationDiv = styled.div`
         `;
       default:
     }
-  }}
-
-
+  }
+  }
   ${({running}) => {
         if(!running){
     return  css`
@@ -36,7 +36,6 @@ const NotificationDiv = styled.div`
   animation-duration: 1s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-
   -webkit-animation-name:parpadeo;
   -webkit-animation-duration: 1s;
   -webkit-animation-timing-function: linear;
@@ -47,7 +46,6 @@ const NotificationDiv = styled.div`
   50% { opacity: 0.0; }
   100% { opacity: 1.0; }
 }
-
 @-webkit-keyframes parpadeo {  
   0% { opacity: 1.0; }
   50% { opacity: 0.0; }
@@ -65,7 +63,6 @@ background-color:aquamarine;
   
   }
 `;
-
 
 
 export default (NotificationDiv);

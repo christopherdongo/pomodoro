@@ -2,52 +2,43 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Img from "../styled/imagen/img";
 import Button from "../styled/Button/Button";
-import NotificationDiv from '../styled/Notification/Notification'
+import NotificationDiv from "../styled/Notification/Notification";
 //media query
-
-import {device} from '../styled/device/device'
-
+import { device } from "../styled/device/device";
 
 const Contendorbutton = styled.div`
   display: flex;
-  margin:0px;
-  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
+  gap: 0.5rem;
   div {
-    padding: 10px;
+    padding: 2rem;
   }
-
-  @media ${device.desktop}{
-    display:flex;
-    justify-content:space-between;
+  @media ${device.tablet} {
+   width: 80%;
   }
 `;
 const Timer = styled.div`
   text-align: center;
-  font-family: 'Sansita Swashed', cursive;
-  font-size: 5em;
+  font-family: "Sansita Swashed", cursive;
+  font-size: 4.2rem;
   font-weight: 800;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  @media ${device.laptop}{
-    font-size:4em;
-  }
-
-  @media ${device.tablet}{
-      font-size:3.5em;
-  }
-  @media ${device.mobilex}{
-    font-size:3em;
-  }
 `;
-
-const Containerimg = styled.figure`
-  width: 100%;
-  height:100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  border-block-color: blue;
+const Containerimg = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+`;
+const ContainerTimer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100px;
 `;
 
 const Pomodoro = () => {
@@ -68,20 +59,29 @@ const Pomodoro = () => {
     type: "",
   });
 
-  const [running, setRunning] = useState(false)
-  const [pause, setPause] = useState(false)
+  const [running, setRunning] = useState(false);
+  const [pause, setPause] = useState(false);
+  const [active, setActive] = useState(false);
+  const [color, setcolor] = useState("")
+
   //actualizar los cambios
   useEffect(() => {
-    if(running){
-    if (timer.time) {
-      const interval = setInterval(() => {
-        countDown();
-      }, 1000);
-      return () => clearInterval(interval);
-    }
+    if (running) {
+      if (timer.time) {
+        const interval = setInterval(() => {
+          countDown();
+        }, 1000);
+        return () => clearInterval(interval);
+      }
     }
     // eslint-disable-next-line
-  }, [running,timer.time]);
+  }, [running, timer.time]);
+
+  useEffect(() => {
+    loading();
+    setActive(true);
+  // eslint-disable-next-line
+  }, []);
 
   //obtener el nuevo valor
   const setTime = (newTime) => {
@@ -102,12 +102,19 @@ const Pomodoro = () => {
     }
   };
 
+  //nicio
+  const loading = () => {
+    return setTime(times.defaultTime);
+  };
+
   const startTimer = () => {
     setAlerta({
       message: "Working!!",
       type: "work",
     });
-    setRunning(true)
+    setRunning(true);
+    setActive(false);
+    setcolor("work")
     return setTime(times.defaultTime);
   };
 
@@ -116,9 +123,11 @@ const Pomodoro = () => {
       type: "shortBreak",
       message: "Taking a short Break!!",
     });
-    setRunning(true)
+    setRunning(true);
+    setActive(false);
+    setcolor("shortBreak");
     return setTime(times.shortBreak);
-    
+
   };
 
   const setTimeForLongBreak = () => {
@@ -126,76 +135,86 @@ const Pomodoro = () => {
       type: "longBreak",
       message: "Taking a long Break!!",
     });
-    setRunning(true)
+    setRunning(true);
+    setActive(false);
+    setcolor("longBreak");
     return setTime(times.longBreak);
-    
   };
 
-  const setStop=()=>{
-     if(running){
-       setRunning(false)
-       setPause(true)
-     }
-     else{
-       setRunning(true)
-       setPause(false)
-     }
-  }
+  const setStop = () => {
+    if (running) {
+      setRunning(false);
+      setPause(true);
+    } else {
+      setRunning(true);
+      setPause(false);
+    }
+  };
 
   //visualizar los datos convertidos
   const displayTimer = (seconds) => {
     const m = Math.floor((seconds % 3600) / 60);
     const s = Math.floor((seconds % 3600) % 60);
-
     return `${m < 10 ? "0" : ""}${m}:${s < 10 ? "0" : ""}${s}`;
   };
-
   //destructuring
   const { message, type } = alerta;
+  console.log(message)
+  console.log(timer.time)
 
   return (
     <>
-      <div>
-        {message ? (
-          <NotificationDiv type={type} running={running}>
-            <h1>{running? message : 'Pause!!!!'}</h1>
-          </NotificationDiv>
-        ) : (
-          ""
-        )}
-        <div>
-          <Timer>{displayTimer(timer.time)}</Timer>
-        </div>
-        <Contendorbutton>
-          <div className="types" onClick={setTimeForShortBreak}>
-            <Button className="short" disabled={pause? 'disabled':''} >Short Break</Button>
-          </div>
+      {message ? (
+        <NotificationDiv type={type} running={running}>
+          <h1>{running || timer.time===0 ? message : "Pause!!!!"}</h1>
+        </NotificationDiv>
+      ) : (
+       ""
+      )}
+      <ContainerTimer>
+        <Timer>{displayTimer(timer.time)}</Timer>
+      </ContainerTimer>
+      <Contendorbutton>
+        <Button
+          color={color? color : null}
+          className="short"
+          disabled={pause ? "disabled" : ""}
+          onClick={setTimeForShortBreak}
+        >
+          Short Break
+        </Button>
 
-          <div className="types">
-            <Button className="start" onClick={startTimer} disabled={pause? 'disabled':''}>
-              Start
-            </Button>
-          </div>
+        <Button
+          color={color? color : null}
+          className="start"
+          onClick={startTimer}
+          disabled={pause ? "disabled" : ""}
+        >
+          Start Working
+        </Button>
 
-          <div className="types">
-            <Button className="long" onClick={setTimeForLongBreak} disabled={pause? 'disabled':''}>
-              Long Break
-            </Button>
-          </div>
+        <Button
+          color={color? color : null}
+          className="long"
+          onClick={setTimeForLongBreak}
+          disabled={pause ? "disabled" : ""}
+        >
+          Long Break
+        </Button>
 
-     
-           <div className="types">
-           <Button className="stop" onClick={setStop}>
-             { !pause? 'Pause' : (pause? 'Continued' : '')  }
-           </Button>
-         </div> 
-         
-        </Contendorbutton>
+        <Button
+          color={color? color : null}
+          className="stop"
+          onClick={setStop}
+          disabled={active ? "disabled" : ""}
+        >
+          {!pause ? "Pause" : pause ? "Continued" : ""}
+        </Button>
+      </Contendorbutton>
 
-        <Containerimg>
-          <Img />
-        </Containerimg>
-      </div>
+      <Containerimg>
+        <Img />
+      </Containerimg>
     </>
   );
 };

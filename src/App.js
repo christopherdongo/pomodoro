@@ -4,33 +4,32 @@ import Header from "./components/Header/Header";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+*,
+::after, ::before{
+  box-sizing:content-box;
+ padding:0;
+}
+
 body {
-    background-color: whitesmoke;
-    text-align:center;
-    overflow:hidden;
-    margin-top:2em;
+    background-color: white;
+    min-height:100vh;
   }
 `;
-
 const Contornodiv = styled.div`
-  -webkit-box-shadow: 10px 10px 113px 8px rgba(4, 7, 79, 1);
-  -moz-box-shadow: 10px 10px 113px 8px rgba(4, 7, 79, 1);
-  box-shadow: 10px 10px 113px 8px rgba(4, 7, 79, 1);
-  border-radius: 20px;
-  width:500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
+
 function App() {
   return (
     <>
       <GlobalStyle />
-      <div>
-        <div className="row d-flex justify-content-center">
-          <Contornodiv className="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-10 mt-5">
-            <Header />
-            <Pomodoro />
-          </Contornodiv>
-        </div>
-      </div>
+      <Header />
+      <Contornodiv>
+        <Pomodoro />
+      </Contornodiv>
     </>
   );
 }
