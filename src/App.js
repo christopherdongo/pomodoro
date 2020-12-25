@@ -9,7 +9,10 @@ const GlobalStyle = createGlobalStyle`
   box-sizing:content-box;
  padding:0;
 }
-
+html{
+  width:100vw;
+  
+}
 body {
     background-color: white;
     min-height:100vh;

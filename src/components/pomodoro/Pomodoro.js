@@ -8,8 +8,8 @@ import { device } from "../styled/device/device";
 
 const Contendorbutton = styled.div`
   display: flex;
-  width: 100%;
-  padding: 1rem;
+  width: 90%;
+  margin:1rem;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap-reverse;
