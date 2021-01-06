@@ -9,7 +9,6 @@ import { device } from "../styled/device/device";
 const Contendorbutton = styled.div`
   display: flex;
   width: 90%;
-  margin:1rem;
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap-reverse;
@@ -18,7 +17,7 @@ const Contendorbutton = styled.div`
     padding: 2rem;
   }
   @media ${device.tablet} {
-   width: 80%;
+   width: 90%;
   }
 `;
 const Timer = styled.div`

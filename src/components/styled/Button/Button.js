@@ -3,13 +3,14 @@ import styled, {css} from 'styled-components'
 
 const Button = styled.button`
  font-size: 1em;
- padding: 0.25em 1em;
- width:93px;
+ padding: 0.25em 1.5em;
+ width:120px;
  border-radius:3px;
  /*color: mediumseagreen;*/
  border: 2px solid; 
- font-family: 'Sansita Swashed', cursive;
- font-weight:500;
+ font-family: Arial, Helvetica, sans-serif;
+ font-weight:700;
+ margin:0.5rem;
 
  ${({ color }) => {
     switch (color) {

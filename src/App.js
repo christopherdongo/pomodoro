@@ -19,10 +19,15 @@ body {
   }
 `;
 const Contornodiv = styled.div`
+width:100%;
+max-width:650px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-items:center;
+margin-right: auto;
+margin-left: auto;
 `;
 
 function App() {
