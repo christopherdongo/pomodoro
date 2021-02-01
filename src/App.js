@@ -9,13 +9,11 @@ const GlobalStyle = createGlobalStyle`
   box-sizing:content-box;
  padding:0;
 }
-html{
-  width:100vw;
-  
+html{ 
 }
 body {
     background-color: white;
-    min-height:100vh;
+    height:100vh;
   }
 `;
 const Contornodiv = styled.div`

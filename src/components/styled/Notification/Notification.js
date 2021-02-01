@@ -2,14 +2,17 @@ import styled,{css} from "styled-components";
 
 const NotificationDiv = styled.div`
   width:100%;
-  height: 65px;
+  height: 80px;
   display:flex;
   justify-content:center;
   align-items:center;
   align-content:center;
-  &h1 {
-    font-size: 20px;
+  h1 {
+    font-size: 1.8rem;
+    padding:10px;
     font-weight: bold;
+    text-align:center;
+    
   }
   ${({ type }) => {
     switch (type) {
